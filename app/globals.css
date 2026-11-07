@@ -1,0 +1,180 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-mono);
+  --font-heading: var(--font-geist-sans);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+
+  /* Nordic Brand Colors */
+  --color-brand-sage: var(--brand-sage);
+  --color-brand-pale-sage: var(--brand-pale-sage);
+  --color-brand-deep-forest: var(--brand-deep-forest);
+  --color-brand-warm-ivory: var(--brand-warm-ivory);
+  --color-brand-soft-beige: var(--brand-soft-beige);
+  --color-brand-charcoal: var(--brand-charcoal);
+
+  /* Restrained Nordic Radii */
+  --radius-sm: calc(var(--radius) * 0.67);
+  --radius-md: var(--radius);
+  --radius-lg: calc(var(--radius) * 1.33);
+  --radius-xl: calc(var(--radius) * 1.67);
+  --radius-2xl: calc(var(--radius) * 2);
+  --radius-3xl: calc(var(--radius) * 2.5);
+  --radius-4xl: calc(var(--radius) * 3);
+}
+
+:root {
+  /* Scandinavian Warm Editorial Palette */
+  --background: #FAF9F6;
+  --foreground: #292E29;
+  --card: #FFFFFF;
+  --card-foreground: #292E29;
+  --popover: #FFFFFF;
+  --popover-foreground: #292E29;
+  --primary: #536F57;
+  --primary-foreground: #FFFFFF;
+  --secondary: #E7EFE5;
+  --secondary-foreground: #354C38;
+  --muted: #F0F0EA;
+  --muted-foreground: #696E67;
+  --accent: #E7EFE5;
+  --accent-foreground: #354C38;
+  --destructive: #C24134;
+  --destructive-foreground: #FFFFFF;
+  --border: #E5E5DC;
+  --input: #DADCD3;
+  --ring: #78947B;
+
+  /* Nordic Data / Visualization */
+  --chart-1: #536F57;
+  --chart-2: #78947B;
+  --chart-3: #95ADA4;
+  --chart-4: #B5C4BC;
+  --chart-5: #354C38;
+
+  /* Restrained Scandinavian Radius (6px) */
+  --radius: 0.375rem;
+
+  /* Sidebar Tokens */
+  --sidebar: #FAF9F6;
+  --sidebar-foreground: #292E29;
+  --sidebar-primary: #536F57;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #E7EFE5;
+  --sidebar-accent-foreground: #354C38;
+  --sidebar-border: #E5E5DC;
+  --sidebar-ring: #78947B;
+
+  /* Dedicated Nordic Brand Colors */
+  --brand-sage: #78947B;
+  --brand-pale-sage: #E7EFE5;
+  --brand-deep-forest: #354C38;
+  --brand-warm-ivory: #FAF9F6;
+  --brand-soft-beige: #F0EDE4;
+  --brand-charcoal: #292E29;
+}
+
+.dark {
+  /* Nordic Dusk Palette (Calm forest charcoal & warm ivory) */
+  --background: #181B18;
+  --foreground: #EDECE7;
+  --card: #202420;
+  --card-foreground: #EDECE7;
+  --popover: #202420;
+  --popover-foreground: #EDECE7;
+  --primary: #78947B;
+  --primary-foreground: #121612;
+  --secondary: #272E27;
+  --secondary-foreground: #E7EFE5;
+  --muted: #252A25;
+  --muted-foreground: #989E96;
+  --accent: #272E27;
+  --accent-foreground: #E7EFE5;
+  --destructive: #E05A4C;
+  --destructive-foreground: #FFFFFF;
+  --border: #323A32;
+  --input: #323A32;
+  --ring: #78947B;
+
+  /* Charts */
+  --chart-1: #78947B;
+  --chart-2: #536F57;
+  --chart-3: #95ADA4;
+  --chart-4: #A8B8AF;
+  --chart-5: #D0DBD4;
+
+  /* Sidebar */
+  --sidebar: #181B18;
+  --sidebar-foreground: #EDECE7;
+  --sidebar-primary: #78947B;
+  --sidebar-primary-foreground: #121612;
+  --sidebar-accent: #272E27;
+  --sidebar-accent-foreground: #E7EFE5;
+  --sidebar-border: #323A32;
+  --sidebar-ring: #78947B;
+
+  /* Brand Colors in Dark Mode */
+  --brand-sage: #78947B;
+  --brand-pale-sage: #E7EFE5;
+  --brand-deep-forest: #354C38;
+  --brand-warm-ivory: #FAF9F6;
+  --brand-soft-beige: #F0EDE4;
+  --brand-charcoal: #292E29;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    @apply font-sans antialiased;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  body {
+    @apply bg-background text-foreground min-h-screen;
+    background-color: var(--background);
+    color: var(--foreground);
+  }
+  ::selection {
+    background-color: var(--brand-pale-sage);
+    color: var(--brand-deep-forest);
+  }
+}
