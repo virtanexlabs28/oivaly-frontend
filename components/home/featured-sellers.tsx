@@ -50,7 +50,7 @@ export function FeaturedSellers({
       itemCount: store.productCount || store.featuredProducts?.length || 0,
       avatarUrl: store.logoUrl || DEFAULT_AVATAR,
       bannerUrl: store.bannerUrl || DEFAULT_BANNER,
-      joinedYear: new Date(store.createdAt || Date.now()).getFullYear() || 2024,
+      joinedYear: store.createdAt ? new Date(store.createdAt).getFullYear() : 2024,
       rating: 4.9,
       reviewCount: 38,
       featuredProducts: store.featuredProducts?.map((prod) => ({

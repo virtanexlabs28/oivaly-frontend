@@ -30,16 +30,18 @@ export default function ContactUsPage() {
   const [isSubmitted, setIsSubmitted] = React.useState(false);
 
   // Check if Helsinki local time is within business hours (09:00 - 18:00 EET, Mon-Fri)
-  const isBusinessHours = React.useMemo(() => {
+  const [isBusinessHours, setIsBusinessHours] = React.useState(true);
+
+  React.useEffect(() => {
     try {
       const helsinkiDate = new Date(
         new Date().toLocaleString("en-US", { timeZone: "Europe/Helsinki" })
       );
       const day = helsinkiDate.getDay();
       const hour = helsinkiDate.getHours();
-      return day >= 1 && day <= 5 && hour >= 9 && hour < 18;
+      setIsBusinessHours(day >= 1 && day <= 5 && hour >= 9 && hour < 18);
     } catch {
-      return true;
+      setIsBusinessHours(true);
     }
   }, []);
 
