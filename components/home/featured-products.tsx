@@ -4,7 +4,6 @@ import * as React from "react";
 import Link from "next/link";
 import { ArrowRightIcon } from "@phosphor-icons/react/dist/ssr";
 import { ProductCard } from "@/components/product/product-card";
-import { DEMO_FEATURED_PRODUCTS } from "@/fixtures/marketplace-demo";
 import type { Product } from "@/resources/interfaces/product.interface";
 import { cn } from "@/lib/utils";
 
@@ -87,9 +86,8 @@ export function FeaturedProducts({
     ];
   }, [mappedRealProducts]);
 
-  // When live backend products are available, display ONLY live products
-  const allItems =
-    mappedRealProducts.length > 0 ? mappedRealProducts : DEMO_FEATURED_PRODUCTS;
+  // Display strictly real backend products
+  const allItems = mappedRealProducts;
 
   // Filter items based on active tab
   const filteredItems =
@@ -180,15 +178,14 @@ export function FeaturedProducts({
         ) : (
           <div className="py-12 text-center bg-card border border-border/80 rounded-sm">
             <p className="text-sm text-muted-foreground">
-              No products found in this category.
+              No products found in the marketplace catalog yet.
             </p>
-            <button
-              type="button"
-              onClick={() => setActiveTab("all")}
-              className="mt-3 text-xs font-semibold text-primary underline"
+            <Link
+              href="/seller/signup"
+              className="mt-3 inline-block text-xs font-semibold text-primary underline"
             >
-              Show all items
-            </button>
+              Become a maker and list your first product
+            </Link>
           </div>
         )}
       </div>

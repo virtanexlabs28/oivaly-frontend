@@ -2,21 +2,70 @@ import * as React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRightIcon } from "@phosphor-icons/react/dist/ssr";
-import { DEMO_CURATED_COLLECTIONS, type DemoCollectionItem } from "@/fixtures/marketplace-demo";
+import type { Category } from "@/resources/interfaces/product.interface";
+
+export interface DemoCollectionItem {
+  id: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  slug: string;
+  imageUrl: string;
+  tag: string;
+}
 
 export interface CuratedCollectionsProps {
-  collections?: DemoCollectionItem[];
+  realCategories?: Category[];
 }
+
+const CATEGORY_IMAGES_MAP: Record<string, string> = {
+  ceramics: "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?q=80&w=800&auto=format&fit=crop",
+  "art-ceramics": "https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?q=80&w=800&auto=format&fit=crop",
+  linen: "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?q=80&w=800&auto=format&fit=crop",
+  "home-living": "https://images.unsplash.com/photo-1517256064527-09c73fc73e38?q=80&w=800&auto=format&fit=crop",
+  wood: "https://images.unsplash.com/photo-1590736969955-71cc94801759?q=80&w=800&auto=format&fit=crop",
+  wool: "https://images.unsplash.com/photo-1580301762395-21ce84d00bc6?q=80&w=800&auto=format&fit=crop",
+  "nordic-living": "https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=80&w=800&auto=format&fit=crop",
+  jewelry: "https://images.unsplash.com/photo-1605100804763-247f67b3557e?q=80&w=800&auto=format&fit=crop",
+};
+
+const DEFAULT_IMAGE = "https://images.unsplash.com/photo-1517256064527-09c73fc73e38?q=80&w=800&auto=format&fit=crop";
 
 /**
  * Editorial Curated Collections Section.
- * Features an asymmetric editorial layout highlighting distinct Scandinavian living themes
- * with rich typography, tags, and direct shopping CTAs.
+ * Highlights distinct Scandinavian living themes derived directly from backend categories.
+ * Renders null when no categories exist.
  */
 export function CuratedCollections({
-  collections = DEMO_CURATED_COLLECTIONS,
+  realCategories = [],
 }: CuratedCollectionsProps) {
+  if (!realCategories || realCategories.length === 0) {
+    return null;
+  }
+
+  const collections: DemoCollectionItem[] = realCategories.slice(0, 3).map((cat) => {
+    const slugKey = cat.slug?.toLowerCase() || cat.name.toLowerCase();
+    const matchedImg =
+      (cat as unknown as { imageUrl?: string }).imageUrl ||
+      CATEGORY_IMAGES_MAP[slugKey] ||
+      Object.entries(CATEGORY_IMAGES_MAP).find(([k]) => slugKey.includes(k))?.[1] ||
+      DEFAULT_IMAGE;
+
+    return {
+      id: cat.id,
+      title: cat.name,
+      subtitle: "Nordic Department",
+      description: cat.description || `Discover authentic handcrafted goods in ${cat.name}.`,
+      slug: cat.slug || cat.id,
+      imageUrl: matchedImg,
+      tag: cat.name,
+    };
+  });
+
   const [primary, secondary, tertiary] = collections;
+  if (!primary) {
+    return null;
+  }
 
   return (
     <section
@@ -103,21 +152,21 @@ export function CuratedCollections({
                   className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
                 />
                 <div
-                  className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none"
+                  className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent pointer-events-none"
                   aria-hidden="true"
                 />
                 <div className="relative p-5 sm:p-6 text-white">
-                  <span className="inline-block px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-white/20 backdrop-blur-md text-white border border-white/30 mb-2">
+                  <span className="inline-block px-2.5 py-0.5 rounded-full text-[9px] font-bold uppercase tracking-wider bg-white/20 backdrop-blur-md text-white border border-white/30 mb-2">
                     {secondary.tag}
                   </span>
-                  <h3 className="font-heading text-lg sm:text-xl font-bold tracking-tight leading-tight">
+                  <h3 className="font-heading text-lg sm:text-xl font-bold tracking-tight leading-snug mb-1">
                     {secondary.title}
                   </h3>
-                  <p className="text-xs text-white/80 mt-1 line-clamp-1">
-                    {secondary.description}
+                  <p className="text-xs text-white/80 line-clamp-1 mb-2">
+                    {secondary.subtitle}
                   </p>
-                  <div className="mt-3 inline-flex items-center gap-1 text-xs font-semibold text-white group-hover:underline">
-                    <span>Shop collection</span>
+                  <div className="inline-flex items-center gap-1 text-xs font-semibold text-white group-hover:underline">
+                    <span>Shop now</span>
                     <ArrowRightIcon className="size-3 transition-transform group-hover:translate-x-1" aria-hidden="true" />
                   </div>
                 </div>
@@ -137,21 +186,21 @@ export function CuratedCollections({
                   className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
                 />
                 <div
-                  className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none"
+                  className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent pointer-events-none"
                   aria-hidden="true"
                 />
                 <div className="relative p-5 sm:p-6 text-white">
-                  <span className="inline-block px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-white/20 backdrop-blur-md text-white border border-white/30 mb-2">
+                  <span className="inline-block px-2.5 py-0.5 rounded-full text-[9px] font-bold uppercase tracking-wider bg-white/20 backdrop-blur-md text-white border border-white/30 mb-2">
                     {tertiary.tag}
                   </span>
-                  <h3 className="font-heading text-lg sm:text-xl font-bold tracking-tight leading-tight">
+                  <h3 className="font-heading text-lg sm:text-xl font-bold tracking-tight leading-snug mb-1">
                     {tertiary.title}
                   </h3>
-                  <p className="text-xs text-white/80 mt-1 line-clamp-1">
-                    {tertiary.description}
+                  <p className="text-xs text-white/80 line-clamp-1 mb-2">
+                    {tertiary.subtitle}
                   </p>
-                  <div className="mt-3 inline-flex items-center gap-1 text-xs font-semibold text-white group-hover:underline">
-                    <span>Shop collection</span>
+                  <div className="inline-flex items-center gap-1 text-xs font-semibold text-white group-hover:underline">
+                    <span>Shop now</span>
                     <ArrowRightIcon className="size-3 transition-transform group-hover:translate-x-1" aria-hidden="true" />
                   </div>
                 </div>

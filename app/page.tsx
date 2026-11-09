@@ -43,7 +43,7 @@ async function LiveCategoryDiscovery() {
       realProducts = productsRes.value.data;
     }
   } catch {
-    // Graceful fallback to curated discovery items
+    // Graceful error handling
   }
 
   return (
@@ -66,10 +66,46 @@ async function LiveFeaturedProducts() {
       realProducts = response.data;
     }
   } catch {
-    // Graceful fallback to curated items
+    // Graceful error handling
   }
 
   return <FeaturedProducts realProducts={realProducts} />;
+}
+
+/**
+ * Async data streaming component for curated collections from real backend API.
+ */
+async function LiveCuratedCollections() {
+  let realCategories: Category[] = [];
+
+  try {
+    const res = await categoriesApi.getCategories("ACTIVE");
+    if (Array.isArray(res)) {
+      realCategories = res;
+    }
+  } catch {
+    // Graceful error handling
+  }
+
+  return <CuratedCollections realCategories={realCategories} />;
+}
+
+/**
+ * Async data streaming component for editor's picks from real backend API.
+ */
+async function LiveEditorsPicks() {
+  let realProducts: Product[] = [];
+
+  try {
+    const response = await productsApi.getMarketplace({ limit: 4 });
+    if (response && Array.isArray(response.data)) {
+      realProducts = response.data;
+    }
+  } catch {
+    // Graceful error handling
+  }
+
+  return <EditorsPicks realProducts={realProducts} />;
 }
 
 /**
@@ -84,7 +120,7 @@ async function LiveFeaturedSellers() {
       realSellers = stores;
     }
   } catch {
-    // Graceful fallback to curated maker profiles
+    // Graceful error handling
   }
 
   return <FeaturedSellers realSellers={realSellers} />;
@@ -115,8 +151,8 @@ async function LiveCustomerReviews() {
  * - Prominent search-first discovery
  * - Circular category navigation hub (Live Categories API)
  * - Interactive trending product grid (Live Products API)
- * - Asymmetric editorial collections
- * - Handpicked editor's gift picks
+ * - Asymmetric editorial collections (Live Categories API)
+ * - Handpicked editor's gift picks (Live Products API)
  * - Featured maker studios with live product previews (Live Stores API)
  * - Community appreciation with verified customer reviews (Live Reviews API)
  * - Trust guarantees and Scandinavian slow-craft story
@@ -139,10 +175,14 @@ export default function HomePage() {
       </React.Suspense>
 
       {/* 4. Asymmetric Curated Collections & Living Themes */}
-      <CuratedCollections />
+      <React.Suspense fallback={null}>
+        <LiveCuratedCollections />
+      </React.Suspense>
 
       {/* 5. Editor's Picks: Everyday Heirlooms & Gift Guides */}
-      <EditorsPicks />
+      <React.Suspense fallback={null}>
+        <LiveEditorsPicks />
+      </React.Suspense>
 
       {/* 6. Meet the Makers: Independent Studios with Product Previews with Live Stores API */}
       <React.Suspense fallback={<FeaturedSellers />}>

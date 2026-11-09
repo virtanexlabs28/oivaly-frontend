@@ -3,7 +3,6 @@ import Link from "next/link";
 import { ArrowRightIcon } from "@phosphor-icons/react/dist/ssr";
 import { ProductCard } from "./product-card";
 import { productsApi } from "@/resources/apis/products.api";
-import { DEMO_FEATURED_PRODUCTS } from "@/fixtures/marketplace-demo";
 import type { Product } from "@/resources/interfaces/product.interface";
 
 export interface RelatedProductsProps {
@@ -28,31 +27,7 @@ export async function RelatedProducts({
       related = res.data.filter((p) => p.id !== currentProductId).slice(0, 4);
     }
   } catch {
-    // Graceful fallback
-  }
-
-  // Supplement with demo fixtures if catalog is sparse
-  if (related.length < 4) {
-    const fallbackDemos = DEMO_FEATURED_PRODUCTS.filter(
-      (d) => d.id !== currentProductId && d.slug !== currentProductId
-    ).slice(0, 4 - related.length);
-
-    fallbackDemos.forEach((d) => {
-      related.push({
-        id: d.id,
-        storeId: d.storeId,
-        name: d.name,
-        slug: d.slug,
-        price: d.price,
-        vatRate: d.vatRate,
-        vatIncluded: d.vatIncluded,
-        status: "PUBLISHED",
-        store: { id: d.storeId, name: d.storeName, status: "ACTIVE" },
-        images: [{ id: `${d.id}-img`, productId: d.id, url: d.imageUrl, altText: d.imageAlt, isPrimary: true, sortOrder: 0 }],
-        createdAt: "2026-10-01T10:00:00Z",
-        updatedAt: "2026-10-01T10:00:00Z",
-      });
-    });
+    // Graceful error handling
   }
 
   if (related.length === 0) {

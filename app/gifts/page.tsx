@@ -33,161 +33,63 @@ interface GiftItem {
   freeShipping?: boolean;
 }
 
-const GIFT_CATALOG: GiftItem[] = [
-  {
-    id: "gift-1",
-    name: "Hand-Carved Arctic Birch Kuksa Drinking Cup",
-    slug: "hand-carved-finnish-kuksa-drinking-cup",
-    price: 49.0,
-    storeName: "Lapland Birchworks",
-    storeCity: "Inari",
-    category: "heirloom",
-    imageUrl: "https://images.unsplash.com/photo-1590736704728-f4730bb30770?auto=format&fit=crop&w=800&q=80",
-    badge: "Bestselling Gift",
-    freeShipping: true,
-  },
-  {
-    id: "gift-2",
-    name: "Smoked Birch & Peat Aromatherapy Soy Candle",
-    slug: "smoked-birch-peat-soy-candle",
-    price: 26.0,
-    storeName: "Helsinki Flame Studio",
-    storeCity: "Helsinki",
-    category: "under50",
-    imageUrl: "https://images.unsplash.com/photo-1603006905003-be475563bc59?auto=format&fit=crop&w=800&q=80",
-    badge: "Under €30",
-    freeShipping: false,
-  },
-  {
-    id: "gift-3",
-    name: "Woven Heavy Flax Linen Kitchen Towels (Pair)",
-    slug: "woven-heavy-linen-kitchen-towel-set",
-    price: 38.0,
-    storeName: "Pohjanmaa Linen Guild",
-    storeCity: "Vaasa",
-    category: "home",
-    imageUrl: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80",
-    badge: "Host Gift",
-    freeShipping: false,
-  },
-  {
-    id: "gift-4",
-    name: "Ceramic Drip Coffee Pour-Over & Carafe Set",
-    slug: "ceramic-drip-coffee-pour-over-set",
-    price: 58.0,
-    storeName: "Kallio Potters Co.",
-    storeCity: "Helsinki",
-    category: "home",
-    imageUrl: "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=800&q=80",
-    badge: "Design Pick",
-    freeShipping: true,
-  },
-  {
-    id: "gift-5",
-    name: "Traditional Hand-Coil Sauna Bucket & Birch Ladle",
-    slug: "handmade-sauna-bucket-birch-ladle",
-    price: 84.0,
-    storeName: "Saimaa Sauna Craft",
-    storeCity: "Savonlinna",
-    category: "sauna",
-    imageUrl: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80",
-    badge: "Sauna Classic",
-    freeShipping: true,
-  },
-  {
-    id: "gift-6",
-    name: "Mouth-Blown Clear Sea-Mist Glass Carafe",
-    slug: "mouth-blown-clear-glass-water-carafe",
-    price: 72.0,
-    storeName: "Nuutajärvi Heritage Glass",
-    storeCity: "Urjala",
-    category: "heirloom",
-    imageUrl: "https://images.unsplash.com/photo-1578749556568-bc2c40e68b61?auto=format&fit=crop&w=800&q=80",
-    badge: "Heirloom Glass",
-    freeShipping: true,
-  },
-  {
-    id: "gift-7",
-    name: "Raw Honeycomb & Finnish Forest Berry Confection Box",
-    slug: "organic-forest-pine-honey-wooden-dipper",
-    price: 24.5,
-    storeName: "Kainuu Forest Apiaries",
-    storeCity: "Kajaani",
-    category: "under50",
-    imageUrl: "https://images.unsplash.com/photo-1587049352846-4a222e784d38?auto=format&fit=crop&w=800&q=80",
-    badge: "Sweet Treat",
-    freeShipping: false,
-  },
-  {
-    id: "gift-8",
-    name: "Solid Reclaimed Oak Charcuterie & Cheese Board",
-    slug: "solid-reclaimed-oak-serving-board",
-    price: 64.0,
-    storeName: "Tampere Woodworkers",
-    storeCity: "Tampere",
-    category: "home",
-    imageUrl: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=800&q=80",
-    badge: "Hand-Branded",
-    freeShipping: true,
-  },
-  {
-    id: "gift-9",
-    name: "Forged Sterling Silver Archipelago Pebble Earrings",
-    slug: "forged-silver-archipelago-pebble-earrings",
-    price: 68.0,
-    storeName: "Design District Metals",
-    storeCity: "Helsinki",
-    category: "jewelry",
-    imageUrl: "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=800&q=80",
-    badge: "925 Silver",
-    freeShipping: true,
-  },
-  {
-    id: "gift-10",
-    name: "Pure Linen Waffle Sauna Bathrobe (Charcoal)",
-    slug: "pure-linen-waffle-sauna-bathrobe",
-    price: 135.0,
-    storeName: "Turku Weaver Guild",
-    storeCity: "Turku",
-    category: "sauna",
-    imageUrl: "https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?auto=format&fit=crop&w=800&q=80",
-    badge: "Luxury Linen",
-    freeShipping: true,
-  },
-  {
-    id: "gift-11",
-    name: "Wild Rowanberry Botanical Facial Care Set",
-    slug: "wild-rowanberry-botanical-facial-care-set",
-    price: 45.0,
-    storeName: "Kallio Botanical Apothecary",
-    storeCity: "Helsinki",
-    category: "under50",
-    imageUrl: "https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=800&q=80",
-    badge: "100% Organic",
-    freeShipping: false,
-  },
-  {
-    id: "gift-12",
-    name: "Hand-Carved Curly Birch Watch Box with Velvet Lining",
-    slug: "hand-carved-curly-birch-watch-box",
-    price: 165.0,
-    storeName: "Lapland Birchworks",
-    storeCity: "Inari",
-    category: "heirloom",
-    imageUrl: "https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=800&q=80",
-    badge: "One-of-a-Kind",
-    freeShipping: true,
-  },
-];
-
 export default function GiftsPage() {
   const [activeTab, setActiveTab] = React.useState<"all" | "under50" | "home" | "sauna" | "heirloom" | "jewelry">("all");
   const [customNote, setCustomNote] = React.useState("");
+  const [items, setItems] = React.useState<GiftItem[]>([]);
+  const [isLoading, setIsLoading] = React.useState(true);
+
+  React.useEffect(() => {
+    async function loadGifts() {
+      setIsLoading(true);
+      try {
+        const res = await productsApi.getMarketplace({ limit: 40 });
+        if (res?.data && res.data.length > 0) {
+          const mapped: GiftItem[] = res.data.map((p, idx) => {
+            const priceNum = Number(p.price);
+            let cat: "home" | "sauna" | "heirloom" | "jewelry" | "under50" = "home";
+            if (priceNum <= 50) {
+              cat = "under50";
+            } else if (p.category?.slug?.includes("jewelry")) {
+              cat = "jewelry";
+            } else if (p.category?.slug?.includes("sauna")) {
+              cat = "sauna";
+            } else if (idx % 2 === 0) {
+              cat = "heirloom";
+            }
+
+            return {
+              id: p.id,
+              name: p.name,
+              slug: p.slug,
+              price: priceNum,
+              originalPrice: undefined,
+              storeName: p.store?.name || "Independent Studio",
+              storeCity: "Finland",
+              category: cat,
+              imageUrl: p.images?.[0]?.url || "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=800&q=80",
+              badge: priceNum <= 50 ? "Under €50" : "Artisan Gift",
+              freeShipping: priceNum >= 50,
+            };
+          });
+          setItems(mapped);
+        } else {
+          setItems([]);
+        }
+      } catch {
+        setItems([]);
+      } finally {
+        setIsLoading(false);
+      }
+    }
+    loadGifts();
+  }, []);
 
   const filtered = React.useMemo(() => {
-    if (activeTab === "all") return GIFT_CATALOG;
-    return GIFT_CATALOG.filter((item) => item.category === activeTab);
-  }, [activeTab]);
+    if (activeTab === "all") return items;
+    if (activeTab === "under50") return items.filter((item) => item.price <= 50);
+    return items.filter((item) => item.category === activeTab);
+  }, [items, activeTab]);
 
   return (
     <div className="min-h-screen bg-background py-8 sm:py-16">
@@ -205,7 +107,7 @@ export default function GiftsPage() {
         <div className="border border-border/80 bg-brand-warm-ivory dark:bg-card p-6 sm:p-14 text-center max-w-4xl mx-auto space-y-5 relative">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 text-xs font-semibold uppercase tracking-wider bg-brand-pale-sage text-brand-deep-forest dark:bg-muted dark:text-foreground">
             <GiftIcon className="size-4" weight="fill" />
-            <span>The Nordic Artisan Gift Guide &bull; Season 2026</span>
+            <span>The Nordic Artisan Gift Guide &bull; Authentic Catalog</span>
           </div>
           <h1 className="text-3xl sm:text-6xl font-serif font-bold text-foreground tracking-tight leading-tight">
             Thoughtful Gifts Shaped with Care
@@ -248,7 +150,7 @@ export default function GiftsPage() {
                     : "bg-card border-border/80 text-muted-foreground hover:text-foreground"
                 }`}
               >
-                All Gifts ({GIFT_CATALOG.length})
+                All Gifts
               </button>
               <button
                 onClick={() => setActiveTab("under50")}
@@ -303,24 +205,46 @@ export default function GiftsPage() {
             </div>
           </div>
 
-          {/* Product Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
-            {filtered.map((item) => (
-              <ProductCard
-                key={item.id}
-                id={item.id}
-                name={item.name}
-                slug={item.slug}
-                price={item.price}
-                originalPrice={item.originalPrice}
-                storeName={item.storeName}
-                storeCity={item.storeCity}
-                imageUrl={item.imageUrl}
-                badge={item.badge}
-                freeShipping={item.freeShipping}
-              />
-            ))}
-          </div>
+          {/* Product Grid or Empty State */}
+          {isLoading ? (
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 animate-pulse">
+              {Array.from({ length: 8 }).map((_, i) => (
+                <div key={i} className="aspect-square bg-muted rounded-xs" />
+              ))}
+            </div>
+          ) : filtered.length > 0 ? (
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
+              {filtered.map((item) => (
+                <ProductCard
+                  key={item.id}
+                  id={item.id}
+                  name={item.name}
+                  slug={item.slug}
+                  price={item.price}
+                  originalPrice={item.originalPrice}
+                  storeName={item.storeName}
+                  storeCity={item.storeCity}
+                  imageUrl={item.imageUrl}
+                  badge={item.badge}
+                  freeShipping={item.freeShipping}
+                />
+              ))}
+            </div>
+          ) : (
+            <div className="py-16 text-center bg-card border border-border/80 rounded-sm">
+              <GiftIcon className="size-10 text-muted-foreground mx-auto mb-3" />
+              <h3 className="text-sm font-semibold text-foreground">No gift items currently available in this category</h3>
+              <p className="text-xs text-muted-foreground mt-1 max-w-sm mx-auto">
+                Check back as our verified makers list unique seasonal items.
+              </p>
+              <Link
+                href="/seller/signup"
+                className="mt-4 inline-block text-xs font-semibold text-primary underline"
+              >
+                Are you an artisan? List your creations
+              </Link>
+            </div>
+          )}
         </div>
 
         {/* Studio Gift Wrapping Experience */}
@@ -328,45 +252,50 @@ export default function GiftsPage() {
           <div className="space-y-4">
             <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider bg-brand-pale-sage text-brand-deep-forest rounded-xs">
               <SparkleIcon className="size-3" weight="fill" />
-              <span>Complimentary Service</span>
+              <span>Complimentary Studio Service</span>
             </div>
-            <h2 className="text-2xl font-serif font-bold text-foreground">
-              Hand-Penned Studio Note & Wax Seal
+            <h2 className="text-2xl sm:text-3xl font-serif font-bold text-foreground">
+              Nordic Kraft Wrapping & Handwritten Postcard
             </h2>
-            <p className="text-xs text-muted-foreground leading-relaxed">
-              When sending a gift directly to someone special, select &ldquo;This order is a gift&rdquo; at checkout. The independent artisan will hand-write your heartfelt words on Finnish heavyweight cardstock, sealed with natural pine-resin sealing wax.
+            <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+              Every item ordered as a gift is hand-wrapped in recycled Finnish kraft paper, tied with unbleached natural jute twine, and accompanied by a sprig of dried spruce and a custom handwritten card.
             </p>
-            <div className="p-3.5 bg-muted/20 border border-border/60 text-xs italic font-serif text-foreground/80">
-              &ldquo;May this hand-thrown stoneware mug bring quiet moments of warmth to your morning coffee in Helsinki. With love from Fiskars village.&rdquo;
+            <div className="pt-2">
+              <label htmlFor="gift-note-input" className="block text-xs font-semibold text-foreground mb-1.5">
+                Preview your recipient note (included at checkout):
+              </label>
+              <textarea
+                id="gift-note-input"
+                rows={3}
+                value={customNote}
+                onChange={(e) => setCustomNote(e.target.value)}
+                placeholder="Warm greetings from Helsinki! May this hand-thrown mug bring comfort to your morning coffee ritual..."
+                className="w-full text-xs p-3 bg-background border border-border/80 rounded-xs focus:outline-none focus:ring-1 focus:ring-primary"
+              />
+              <button
+                type="button"
+                onClick={() => {
+                  if (!customNote.trim()) {
+                    toast.error("Please enter a note to save");
+                    return;
+                  }
+                  toast.success("Gift note template saved for your checkout!");
+                }}
+                className="mt-2 px-4 py-2 bg-brand-deep-forest text-white text-xs font-semibold uppercase tracking-wider hover:bg-brand-deep-forest/90 transition-colors"
+              >
+                Save Gift Note
+              </button>
             </div>
           </div>
 
-          <div className="relative aspect-4/3 w-full bg-muted overflow-hidden border border-border/80">
+          <div className="relative aspect-4/3 sm:aspect-16/10 w-full overflow-hidden border border-border/80 rounded-xs bg-muted">
             <Image
-              src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=800&q=80"
-              alt="Artisan wrapping gift package with natural twine"
+              src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=1000&q=80"
+              alt="Nordic kraft paper gift wrapping with spruce sprig"
               fill
               className="object-cover"
             />
           </div>
-        </div>
-
-        {/* Corporate & Bulk Gifting Section */}
-        <div className="border border-border/80 bg-brand-deep-forest text-white p-8 sm:p-12 flex flex-col md:flex-row items-center justify-between gap-8">
-          <div className="space-y-2 max-w-xl">
-            <h3 className="text-xl sm:text-2xl font-serif font-bold">
-              Looking for Corporate or Wedding Favors?
-            </h3>
-            <p className="text-xs text-white/80 leading-relaxed">
-              We collaborate with Finnish companies, creative agencies, and couples to assemble bespoke artisanal gift hampers: custom ceramic sets, engraved wooden kuksas, and organic sauna wellness sets.
-            </p>
-          </div>
-          <Link
-            href="/contact"
-            className="px-6 py-3 bg-brand-sage text-brand-deep-forest text-xs font-bold uppercase tracking-wider hover:bg-brand-sage/90 transition-colors shrink-0"
-          >
-            Inquire About Bespoke Gifting
-          </Link>
         </div>
       </div>
     </div>

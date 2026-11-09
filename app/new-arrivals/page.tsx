@@ -33,170 +33,10 @@ interface DisplayProduct {
   isSmallBatch?: boolean;
 }
 
-const NEW_ARRIVALS_FIXTURES: DisplayProduct[] = [
-  {
-    id: "na-1",
-    name: "Hand-Thrown Speckled Stoneware Mug (350ml)",
-    slug: "hand-thrown-speckled-stoneware-mug",
-    price: 34.0,
-    storeName: "Fiskars Savi Studio",
-    storeCity: "Fiskars",
-    category: "ceramics",
-    imageUrl: "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=800&q=80",
-    badge: "Just Added",
-    freeShipping: true,
-    isSmallBatch: true,
-  },
-  {
-    id: "na-2",
-    name: "Unbleached Baltic Linen Woven Table Runner",
-    slug: "baltic-linen-woven-table-runner",
-    price: 52.0,
-    storeName: "Aurajoen Kutomo",
-    storeCity: "Turku",
-    category: "textiles",
-    imageUrl: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80",
-    badge: "Small Batch",
-    freeShipping: true,
-    isSmallBatch: true,
-  },
-  {
-    id: "na-3",
-    name: "Hand-Carved Arctic Birch Butter Spreader & Board Set",
-    slug: "kelo-pine-carved-butter-spreader-board",
-    price: 29.0,
-    storeName: "Pohjolan Puu Atelier",
-    storeCity: "Rovaniemi",
-    category: "woodwork",
-    imageUrl: "https://images.unsplash.com/photo-1590736704728-f4730bb30770?auto=format&fit=crop&w=800&q=80",
-    badge: "Handmade",
-    freeShipping: false,
-    isSmallBatch: true,
-  },
-  {
-    id: "na-4",
-    name: "Birch Veneer Architectural Pendant Lamp",
-    slug: "birch-bark-minimalist-pendant-lamp",
-    price: 185.0,
-    originalPrice: 210.0,
-    storeName: "Nordic Light Atelier",
-    storeCity: "Helsinki",
-    category: "home",
-    imageUrl: "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=800&q=80",
-    badge: "Featured Drop",
-    freeShipping: true,
-    isSmallBatch: false,
-  },
-  {
-    id: "na-5",
-    name: "Saimaa Virgin Wool Chunky Waffle Throw",
-    slug: "pure-wool-chunky-knit-throw",
-    price: 125.0,
-    storeName: "Saimaa Wool & Yarn",
-    storeCity: "Mikkeli",
-    category: "textiles",
-    imageUrl: "https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?auto=format&fit=crop&w=800&q=80",
-    badge: "Eco Wool",
-    freeShipping: true,
-    isSmallBatch: true,
-  },
-  {
-    id: "na-6",
-    name: "Mouth-Blown Emerald Forest Glass Pitcher",
-    slug: "mouth-blown-forest-green-glass-vase",
-    price: 68.0,
-    storeName: "Nuutajärvi Heritage Glass",
-    storeCity: "Urjala",
-    category: "glassware",
-    imageUrl: "https://images.unsplash.com/photo-1578749556568-bc2c40e68b61?auto=format&fit=crop&w=800&q=80",
-    badge: "New Release",
-    freeShipping: true,
-    isSmallBatch: true,
-  },
-  {
-    id: "na-7",
-    name: "Wild Peat & Pine Needle Restorative Sauna Elixir",
-    slug: "botanical-wild-birch-essential-oil-sauna-blend",
-    price: 24.5,
-    storeName: "Kallio Botanical Apothecary",
-    storeCity: "Helsinki",
-    category: "sauna",
-    imageUrl: "https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=800&q=80",
-    badge: "Organic",
-    freeShipping: false,
-    isSmallBatch: true,
-  },
-  {
-    id: "na-8",
-    name: "Recycled 925 Silver Wave Band Ring",
-    slug: "recycled-silver-wave-band-ring",
-    price: 78.0,
-    storeName: "Design District Metals",
-    storeCity: "Helsinki",
-    category: "jewelry",
-    imageUrl: "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=800&q=80",
-    badge: "Artisan Fine",
-    freeShipping: true,
-    isSmallBatch: true,
-  },
-  {
-    id: "na-9",
-    name: "Hand-Turned Curly Birch Wooden Bowl",
-    slug: "hand-turned-curly-birch-wooden-bowl",
-    price: 89.0,
-    storeName: "Pohjolan Puu Atelier",
-    storeCity: "Rovaniemi",
-    category: "woodwork",
-    imageUrl: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=800&q=80",
-    badge: "Rare Burl",
-    freeShipping: true,
-    isSmallBatch: true,
-  },
-  {
-    id: "na-10",
-    name: "Stoneware Pour-Over Dripper & Server",
-    slug: "stoneware-pour-over-dripper-server",
-    price: 62.0,
-    storeName: "Fiskars Savi Studio",
-    storeCity: "Fiskars",
-    category: "ceramics",
-    imageUrl: "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=800&q=80",
-    badge: "Slow Living",
-    freeShipping: true,
-    isSmallBatch: true,
-  },
-  {
-    id: "na-11",
-    name: "Sauna Smoked Birch Aromatherapy Candle",
-    slug: "smoked-birch-peat-soy-candle",
-    price: 26.0,
-    storeName: "Helsinki Flame Studio",
-    storeCity: "Helsinki",
-    category: "sauna",
-    imageUrl: "https://images.unsplash.com/photo-1603006905003-be475563bc59?auto=format&fit=crop&w=800&q=80",
-    badge: "Clean Burn",
-    freeShipping: false,
-    isSmallBatch: true,
-  },
-  {
-    id: "na-12",
-    name: "Minimalist Brass Geometric Wall Mobile",
-    slug: "minimalist-brass-geometric-wall-mobile",
-    price: 95.0,
-    storeName: "Nordic Light Atelier",
-    storeCity: "Helsinki",
-    category: "home",
-    imageUrl: "https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=800&q=80",
-    badge: "Kinetic Art",
-    freeShipping: true,
-    isSmallBatch: true,
-  },
-];
-
-const CATEGORIES = [
-  { id: "all", label: "All Arrivals" },
-  { id: "ceramics", label: "Ceramics & Stoneware" },
-  { id: "textiles", label: "Linen & Textiles" },
+const CATEGORY_TABS = [
+  { id: "all", label: "All New Arrivals" },
+  { id: "ceramics", label: "Studio Ceramics" },
+  { id: "textiles", label: "Linen & Wool" },
   { id: "woodwork", label: "Nordic Woodwork" },
   { id: "glassware", label: "Mouth-Blown Glass" },
   { id: "sauna", label: "Sauna & Botanical" },
@@ -207,14 +47,14 @@ const CATEGORIES = [
 export default function NewArrivalsPage() {
   const [selectedCategory, setSelectedCategory] = React.useState("all");
   const [sortBy, setSortBy] = React.useState<"latest" | "price-asc" | "price-desc">("latest");
-  const [items, setItems] = React.useState<DisplayProduct[]>(NEW_ARRIVALS_FIXTURES);
+  const [items, setItems] = React.useState<DisplayProduct[]>([]);
   const [isLoading, setIsLoading] = React.useState(true);
 
   React.useEffect(() => {
     async function loadBackendProducts() {
       setIsLoading(true);
       try {
-        const res = await productsApi.getMarketplace({ limit: 20 });
+        const res = await productsApi.getMarketplace({ limit: 40 });
         if (res?.data && res.data.length > 0) {
           const mapped: DisplayProduct[] = res.data.map((p, idx) => ({
             id: p.id,
@@ -222,22 +62,20 @@ export default function NewArrivalsPage() {
             slug: p.slug,
             price: Number(p.price),
             originalPrice: undefined,
-            storeName: p.store?.name || "Nordic Artisan Atelier",
+            storeName: p.store?.name || "Independent Studio",
             storeCity: "Finland",
             category: p.category?.slug?.toLowerCase() || (idx % 2 === 0 ? "ceramics" : "textiles"),
-            imageUrl: p.images?.[0]?.url || NEW_ARRIVALS_FIXTURES[idx % NEW_ARRIVALS_FIXTURES.length].imageUrl,
+            imageUrl: p.images?.[0]?.url || "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=800&q=80",
             badge: idx % 3 === 0 ? "Just Added" : "Small Batch",
             freeShipping: Number(p.price) >= 50,
             isSmallBatch: true,
           }));
-          setItems((prev) => {
-            const ids = new Set(mapped.map((m) => m.id));
-            const remaining = prev.filter((p) => !ids.has(p.id));
-            return [...mapped, ...remaining];
-          });
+          setItems(mapped);
+        } else {
+          setItems([]);
         }
       } catch {
-        // Use fixtures
+        setItems([]);
       } finally {
         setIsLoading(false);
       }
@@ -278,7 +116,7 @@ export default function NewArrivalsPage() {
           <div className="max-w-3xl space-y-4 relative z-10">
             <div className="inline-flex items-center gap-1.5 px-3 py-1 text-xs font-semibold uppercase tracking-wider bg-brand-pale-sage text-brand-deep-forest dark:bg-muted dark:text-foreground">
               <SparkleIcon className="size-4" weight="fill" />
-              <span>Direct Studio Releases &bull; Autumn / Winter 2026</span>
+              <span>Direct Studio Releases &bull; Authentic Catalog</span>
             </div>
             <h1 className="text-3xl sm:text-5xl font-serif font-bold text-foreground tracking-tight leading-tight">
               Fresh Nordic Arrivals
@@ -292,117 +130,99 @@ export default function NewArrivalsPage() {
           <div className="mt-8 pt-6 border-t border-border/60 grid grid-cols-2 sm:grid-cols-4 gap-4 text-xs">
             <div>
               <span className="text-muted-foreground block text-[11px]">Latest Batch</span>
-              <strong className="text-foreground font-serif text-sm">Updated Daily</strong>
+              <strong className="text-foreground font-serif text-sm">Live Inventory</strong>
             </div>
             <div>
               <span className="text-muted-foreground block text-[11px]">Artisan Share</span>
               <strong className="text-foreground font-serif text-sm">90% Direct to Maker</strong>
             </div>
             <div>
-              <span className="text-muted-foreground block text-[11px]">Courier Transit</span>
-              <strong className="text-foreground font-serif text-sm">Posti 1–3 Days</strong>
+              <span className="text-muted-foreground block text-[11px]">Direct Dispatch</span>
+              <strong className="text-foreground font-serif text-sm">Independent Workshops</strong>
             </div>
             <div>
-              <span className="text-muted-foreground block text-[11px]">Craft Standards</span>
-              <strong className="text-foreground font-serif text-sm">100% Plastic-Free</strong>
+              <span className="text-muted-foreground block text-[11px]">Finnish VAT</span>
+              <strong className="text-foreground font-serif text-sm">25.5% Included</strong>
             </div>
           </div>
         </div>
 
-        {/* Filter Bar & Sort Controls */}
-        <div className="space-y-4">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-border/60 pb-4">
-            {/* Category Pills */}
-            <div className="flex items-center gap-1.5 overflow-x-auto pb-1 sm:pb-0 text-xs no-scrollbar">
-              {CATEGORIES.map((cat) => (
-                <button
-                  key={cat.id}
-                  onClick={() => setSelectedCategory(cat.id)}
-                  className={`px-3 py-1.5 border transition-all whitespace-nowrap cursor-pointer text-xs ${
-                    selectedCategory === cat.id
-                      ? "bg-brand-deep-forest text-white border-brand-deep-forest font-semibold shadow-xs"
-                      : "bg-card border-border/80 text-muted-foreground hover:text-foreground hover:border-foreground/40"
-                  }`}
-                >
-                  {cat.label}
-                </button>
-              ))}
-            </div>
-
-            {/* Sort Dropdown */}
-            <div className="flex items-center gap-2 self-end sm:self-auto shrink-0 text-xs">
-              <ArrowsDownUpIcon className="size-3.5 text-muted-foreground" />
-              <span className="text-muted-foreground">Sort:</span>
-              <select
-                value={sortBy}
-                onChange={(e) => setSortBy(e.target.value as any)}
-                className="h-8 px-2.5 text-xs bg-card border border-border/80 focus:outline-none focus:ring-1 focus:ring-primary"
+        {/* Filter & Sort Bar */}
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-border/60 pb-4">
+          {/* Category Filter Pills */}
+          <div className="flex items-center gap-1.5 overflow-x-auto pb-1 scrollbar-none">
+            {CATEGORY_TABS.map((cat) => (
+              <button
+                key={cat.id}
+                type="button"
+                onClick={() => setSelectedCategory(cat.id)}
+                className={`px-3 py-1.5 text-xs font-medium whitespace-nowrap transition-colors border ${
+                  selectedCategory === cat.id
+                    ? "bg-brand-deep-forest text-white border-brand-deep-forest"
+                    : "bg-background text-muted-foreground border-border/80 hover:text-foreground hover:border-foreground/40"
+                }`}
               >
-                <option value="latest">Latest Additions</option>
-                <option value="price-asc">Price: Low to High</option>
-                <option value="price-desc">Price: High to Low</option>
-              </select>
-            </div>
+                {cat.label}
+              </button>
+            ))}
           </div>
 
-          <div className="flex items-center justify-between text-xs text-muted-foreground">
-            <span>
-              Showing <strong className="text-foreground">{filteredItems.length}</strong> unique handcrafted arrivals
-            </span>
-            <span className="hidden sm:inline-flex items-center gap-1">
-              <PackageIcon className="size-3.5 text-primary" />
-              <span>Fulfilled with official Finnish Posti tracking</span>
-            </span>
+          {/* Sort Selector */}
+          <div className="flex items-center gap-2 shrink-0 text-xs">
+            <ArrowsDownUpIcon className="size-3.5 text-muted-foreground" />
+            <span className="text-muted-foreground">Sort:</span>
+            <select
+              value={sortBy}
+              onChange={(e) => setSortBy(e.target.value as "latest" | "price-asc" | "price-desc")}
+              className="bg-background border border-border/80 px-2 py-1 text-xs text-foreground focus:outline-none focus:ring-1 focus:ring-primary"
+            >
+              <option value="latest">Latest Drop</option>
+              <option value="price-asc">Price: Low to High</option>
+              <option value="price-desc">Price: High to Low</option>
+            </select>
           </div>
         </div>
 
-        {/* Products Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
-          {filteredItems.map((p) => (
-            <ProductCard
-              key={p.id}
-              id={p.id}
-              name={p.name}
-              slug={p.slug}
-              price={p.price}
-              originalPrice={p.originalPrice}
-              storeName={p.storeName}
-              storeCity={p.storeCity}
-              imageUrl={p.imageUrl}
-              badge={p.badge}
-              freeShipping={p.freeShipping}
-            />
-          ))}
-        </div>
-
-        {/* Featured Studio Spotlight Banner */}
-        <div className="border border-border/80 bg-brand-pale-sage/20 dark:bg-muted/20 p-6 sm:p-10 flex flex-col md:flex-row items-center gap-8">
-          <div className="relative size-32 sm:size-40 rounded-full overflow-hidden shrink-0 border-2 border-border/80">
-            <Image
-              src="https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?auto=format&fit=crop&w=600&q=80"
-              alt="Artisan at pottery wheel"
-              fill
-              className="object-cover"
-            />
+        {/* Product Grid or Empty State */}
+        {isLoading ? (
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 animate-pulse">
+            {Array.from({ length: 8 }).map((_, i) => (
+              <div key={i} className="aspect-square bg-muted rounded-xs" />
+            ))}
           </div>
-          <div className="space-y-3 max-w-2xl text-center md:text-left">
-            <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider bg-brand-deep-forest text-white rounded-xs">
-              <span>Studio of the Month</span>
-            </div>
-            <h2 className="text-xl sm:text-2xl font-serif font-bold text-foreground">
-              Fiskars Savi Studio &bull; Fiskars Village, Finland
-            </h2>
-            <p className="text-xs text-muted-foreground leading-relaxed">
-              &ldquo;We dig our red clay locally from the riverbed and fire in an open wood kiln over 36 hours. Each mug and pour-over dripper tells the story of the iron-rich Finnish soil.&rdquo;
+        ) : filteredItems.length > 0 ? (
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
+            {filteredItems.map((p) => (
+              <ProductCard
+                key={p.id}
+                id={p.id}
+                name={p.name}
+                slug={p.slug}
+                price={p.price}
+                originalPrice={p.originalPrice}
+                storeName={p.storeName}
+                storeCity={p.storeCity}
+                imageUrl={p.imageUrl}
+                badge={p.badge}
+                freeShipping={p.freeShipping}
+              />
+            ))}
+          </div>
+        ) : (
+          <div className="py-16 text-center bg-card border border-border/80 rounded-sm">
+            <PackageIcon className="size-10 text-muted-foreground mx-auto mb-3" />
+            <h3 className="text-sm font-semibold text-foreground">No new arrivals in this department</h3>
+            <p className="text-xs text-muted-foreground mt-1 max-w-sm mx-auto">
+              Our independent studios list new pieces as they finish them on the wheel and loom. Check back soon!
             </p>
-            <div className="pt-1 flex flex-wrap items-center justify-center md:justify-start gap-4 text-xs font-semibold text-primary">
-              <Link href="/shops/fiskars-ceramic-studio" className="hover:underline flex items-center gap-1">
-                <span>View Full Studio Collection</span>
-                <ArrowRightIcon className="size-3" />
-              </Link>
-            </div>
+            <Link
+              href="/seller/signup"
+              className="mt-4 inline-block text-xs font-semibold text-primary underline"
+            >
+              Are you a maker? Join our marketplace
+            </Link>
           </div>
-        </div>
+        )}
 
         {/* Collector Newsletter Signup */}
         <div className="border border-border/80 bg-card p-6 sm:p-10 text-center max-w-2xl mx-auto space-y-3">

@@ -2,7 +2,7 @@ import * as React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRightIcon, MapPinIcon, StarIcon, StorefrontIcon } from "@phosphor-icons/react/dist/ssr";
-import { DEMO_FEATURED_SELLERS, type DemoSellerItem } from "@/fixtures/marketplace-demo";
+import type { DemoSellerItem } from "@/fixtures/marketplace-demo";
 import type { MarketplaceStorePreview } from "@/resources/apis/stores.api";
 import { formatFinnishCurrency } from "@/lib/finland";
 
@@ -22,7 +22,6 @@ const DEFAULT_AVATAR = "https://images.unsplash.com/photo-1534528741775-53994a69
  */
 export function FeaturedSellers({
   realSellers = [],
-  sellers = DEMO_FEATURED_SELLERS,
 }: FeaturedSellersProps) {
   // Map real backend stores into maker card format
   const mappedRealSellers: DemoSellerItem[] = realSellers.map((store) => {
@@ -63,9 +62,8 @@ export function FeaturedSellers({
     };
   });
 
-  // When live backend sellers are available, display ONLY live sellers
-  const displaySellers =
-    mappedRealSellers.length > 0 ? mappedRealSellers : sellers.slice(0, 4);
+  // Display strictly real backend sellers
+  const displaySellers = mappedRealSellers.slice(0, 4);
 
   return (
     <section
@@ -101,7 +99,8 @@ export function FeaturedSellers({
         </div>
 
         {/* Sellers Grid: 4 Maker Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {displaySellers.length > 0 ? (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {displaySellers.map((seller) => (
             <article
               key={seller.id}
@@ -213,6 +212,19 @@ export function FeaturedSellers({
             </article>
           ))}
         </div>
+        ) : (
+          <div className="py-12 text-center bg-card border border-border/80 rounded-sm">
+            <p className="text-sm text-muted-foreground">
+              No maker studios currently registered.
+            </p>
+            <Link
+              href="/seller/signup"
+              className="mt-3 inline-block text-xs font-semibold text-primary underline"
+            >
+              Open your independent studio shop
+            </Link>
+          </div>
+        )}
       </div>
     </section>
   );
